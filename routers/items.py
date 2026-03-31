@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 from services import item_service
 
-# APIRouter is like a mini-FastAPI app just for items
+
 router = APIRouter()
 
 class ItemCreate(BaseModel):
