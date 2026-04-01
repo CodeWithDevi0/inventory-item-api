@@ -43,3 +43,29 @@ def add_item_to_db(item_data):
         return {"message": "Item created successfully", "item_id": new_item_id}
     except Exception as e:
         return {"error": str(e)}
+
+
+
+def update_item_in_db(item_id, item_data):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        sql = "UPDATE items SET item_name = %s, category = %s, price = %s, stock_quantity = %s WHERE item_id = %s"
+        values = (
+            item_data.item_name,
+            item_data.category,
+            item_data.price,
+            item_data.stock_quantity,
+            item_id
+        )
+        cursor.execute(sql, values)
+        conn.commit()
+        rows_affected = cursor.rowcount
+        cursor.close()
+        conn.close()
+
+        if rows_affected == 0:
+            return {"message": "Item not found or no new changes made"}
+        return  {"message": "Item updated succesfully"}
+    except Exception as e:
+        return {"error": str(e)}

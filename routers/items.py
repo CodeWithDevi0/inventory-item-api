@@ -22,3 +22,7 @@ def get_single_item(item_id: int):
 @router.post("/api/items")
 def create_item(item_data: ItemCreate):
     return item_service.add_item_to_db(item_data)
+
+@router.put("/api/items/{item_id}")
+def update_existing_item(item_id: int, item_data: ItemCreate):
+    return item_service.update_item_in_db(item_id, item_data)
