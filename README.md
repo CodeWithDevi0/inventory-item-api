@@ -3,7 +3,7 @@
 *A simple FastAPI and MySQL backend I built to learn how systems communicate.*
 
 ## What I Learned in this Project
-Instead of putting all my code in one massive file, I learned how to organize a project professionally by separating the logic:
+Instead of putting all my code in one massive file, I learned how to organize a project by separating the logic:
 
 - **Routers (`routers/`):** I learned how to use `APIRouter` to cleanly handle API endpoints (like `GET`, `POST`, and `PUT`) without mixing them with database code.
 - **Services (`services/`):** I learned to put my actual SQL queries and logic in separate files. This makes the main code much easier to read and fix.
