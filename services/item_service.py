@@ -103,3 +103,17 @@ def update_item_in_db(item_id, item_data):
     except Exception as e:
         print(f"Internal Database Error: {e}")
         return {"error": "Oops! Something went wrong on our end. Please try again Later."}
+    
+
+
+def remove_item_from_db(item_id):
+    try:
+        sql = "DELETE FROM items WHERE item_id = %s"
+        rows_affected, _ = execute_write_query(sql, (item_id,),)
+
+        if rows_affected == 0:
+            return {"error": "Item not found. Could not delete."}
+        return {"message": "Item deleted succesfully."}
+    except Exception as e:
+        print(f"Internal Database Error: {e}")
+        return {"error": "Oops! Something went wrong while deleting the item."}

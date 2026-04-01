@@ -26,3 +26,7 @@ def create_item(item_data: ItemCreate):
 @router.put("/api/items/{item_id}")
 def update_existing_item(item_id: int, item_data: ItemCreate):
     return item_service.update_item_in_db(item_id, item_data)
+
+@router.delete("/api/items/{item_id}")
+def delete_existing_item(item_id: int):
+    return item_service.remove_item_from_db(item_id)
