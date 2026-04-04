@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import items 
+from routers import items, users 
 
 app = FastAPI()
 
@@ -17,3 +17,4 @@ def home():
 
 # Tell the main app to use the routes from items.py
 app.include_router(items.router)
+app.include_router(users.router)

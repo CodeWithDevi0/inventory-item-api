@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from services import item_service
 
 
-router = APIRouter()
+router = APIRouter(tags=["Item Management"])
 
 class ItemCreate(BaseModel):
     item_name: str
